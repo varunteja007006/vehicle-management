@@ -1,7 +1,5 @@
 "use client";
 
-import { useQuery } from "convex/react";
-import { api } from "../convex/_generated/api";
 import { ModeToggle } from "@/components/molecules/toggle-theme";
 import { useApp } from "@/lib/store";
 import { companies as seedCompanies, users as seedUsers } from "@/lib/seed";
@@ -9,8 +7,6 @@ import Link from "next/link";
 import { clsx } from "clsx";
 
 export default function Home() {
-  const tasks = useQuery(api.tasks.get);
-
   const { currentUserId, setCurrentUser, companies, users } = useApp();
 
   const user = users.find((u) => u.id === currentUserId);
@@ -23,7 +19,6 @@ export default function Home() {
       <div>
         <ModeToggle />
       </div>
-      {tasks?.map(({ _id, text }) => <div key={_id}>{text}</div>)}
       <main className="grid md:grid-cols-2 gap-6">
         <section className="card p-6">
           <h2 className="text-slate-900 text-xl font-semibold mb-2">
