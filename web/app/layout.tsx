@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "@/providers/convex-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
-import { SignIn } from "@/components/molecules/sign-in-btn";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import Navbar from "@/components/molecules/nav/Navbar";
+import { Footer } from "react-day-picker";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -29,9 +25,7 @@ export default function RootLayout({
   return (
     <ConvexAuthNextjsServerProvider>
       <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
-        >
+        <body className={`${geistMono.variable} antialiased min-h-screen`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -39,24 +33,10 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <ConvexClientProvider>
-              {" "}
-              <div className="max-w-7xl mx-auto px-4 py-8">
-                <header className="mb-8">
-                  <h1 className="text-2xl md:text-3xl font-semibold">
-                    Vehicle Management{" "}
-                    <span className="text-blue-300">Prototype</span>
-                  </h1>
-                  <div>
-                    <SignIn />
-                  </div>
-                  <p className="text-slate-300">
-                    Driver • Admin • Super User flows
-                  </p>
-                </header>
+              <div className="max-w-7xl mx-auto">
+                <Navbar />
                 {children}
-                <footer className="mt-16 text-xs text-slate-400">
-                  Built with Next.js + Tailwind (dummy data, no backend).
-                </footer>
+                <Footer />
               </div>
             </ConvexClientProvider>
           </ThemeProvider>

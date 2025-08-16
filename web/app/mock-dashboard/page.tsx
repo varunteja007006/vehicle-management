@@ -10,9 +10,9 @@ export default function DashboardRoot() {
   const user = users.find(u => u.id === currentUserId)!;
 
   const map: Record<string, string> = {
-    driver: "/dashboard/driver",
-    admin: "/dashboard/admin",
-    super: "/dashboard/super",
+    driver: "/mock-dashboard/driver",
+    admin: "/mock-dashboard/admin",
+    super: "/mock-dashboard/super",
   };
 
   return (

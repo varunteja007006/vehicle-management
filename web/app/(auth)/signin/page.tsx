@@ -1,4 +1,4 @@
-import { SignIn } from "@/components/molecules/sign-in-btn";
+import { SignIn } from "@/components/molecules/auth/sign-in-btn";
 
 export default function Page() {
   return (

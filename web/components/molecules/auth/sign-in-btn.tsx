@@ -1,9 +1,19 @@
 "use client";
+
+import { Button } from "@/components/ui/button";
+
+import { useConvexAuth } from "convex/react";
 import { useAuthActions } from "@convex-dev/auth/react";
-import { Button } from "../ui/button";
 
 export function SignIn() {
   const { signIn } = useAuthActions();
+
+  const { isAuthenticated } = useConvexAuth();
+
+  if (isAuthenticated) {
+    return null;
+  }
+
   return (
     <Button
       onClick={() =>
@@ -11,6 +21,7 @@ export function SignIn() {
           redirectTo: "/dashboard",
         })
       }
+      className="cursor-pointer"
     >
       Sign in with Google
     </Button>

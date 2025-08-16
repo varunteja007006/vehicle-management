@@ -1,8 +1,6 @@
 "use client";
 
-import { ModeToggle } from "@/components/molecules/toggle-theme";
 import { useApp } from "@/lib/store";
-import { companies as seedCompanies, users as seedUsers } from "@/lib/seed";
 import Link from "next/link";
 import { clsx } from "clsx";
 
@@ -16,16 +14,13 @@ export default function Home() {
 
   return (
     <>
-      <div>
-        <ModeToggle />
-      </div>
       <main className="grid md:grid-cols-2 gap-6">
         <section className="card p-6">
           <h2 className="text-slate-900 text-xl font-semibold mb-2">
             Sign in as
           </h2>
           <div className="flex flex-col gap-2">
-            {seedUsers.map((u) => (
+            {users.map((u) => (
               <button
                 key={u.id}
                 onClick={() => setCurrentUser(u.id)}
@@ -46,7 +41,7 @@ export default function Home() {
 
           <div className="mt-4">
             <Link
-              href="/dashboard"
+              href="/mock-dashboard"
               className="inline-block mt-2 px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
             >
               Go to Dashboard
