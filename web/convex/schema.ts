@@ -44,8 +44,6 @@ const schema = defineSchema({
   app_users: defineTable({
     // Link to Auth identity (optional pattern—store subject for multi-provider)
     userId: v.string(), // This is now a required link to the auth user
-    // subject: v.string(), // ! remove later This is now a required link to the auth user
-    // name: v.string(),
     email: v.optional(v.string()),
     // Optional default company for driver convenience
     // defaultCompanyId: v.optional(v.id("companies")),
