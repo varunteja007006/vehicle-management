@@ -5,7 +5,7 @@ import { ConvexClientProvider } from "@/providers/convex-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
 import Navbar from "@/components/molecules/nav/Navbar";
-import { Footer } from "react-day-picker";
+import Footer from "@/components/molecules/footer/Footer";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -35,7 +35,7 @@ export default function RootLayout({
             <ConvexClientProvider>
               <div className="max-w-7xl mx-auto">
                 <Navbar />
-                {children}
+                <main className="min-h-screen">{children}</main>
                 <Footer />
               </div>
             </ConvexClientProvider>
